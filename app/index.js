@@ -220,6 +220,7 @@ ChromeExtensionGenerator.prototype.extensionFiles = function extensionFiles() {
   // extension assets
   this.template('_locales/en/messages.json', 'app/_locales/en/messages.json');
   this.copy('styles/main.css', 'app/styles/main.css');
+  this.copy('styles/main.scss', 'app/styles/main.scss');
   this.copy('images/icon-16.png', 'app/images/icon-16.png');
   this.copy('images/icon-128.png', 'app/images/icon-128.png');
 };
