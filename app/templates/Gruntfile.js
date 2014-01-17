@@ -191,17 +191,9 @@ module.exports = function (grunt) {
             }
         },
         cssmin: {
-            'with-sass': {
-                files: {
-                    '<%= yeoman.dist %>/styles/main.css': '.tmp/styles/{,*/}*.css'
-                }
-            },
             dist: {
                 files: {
-                    '<%%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
-                        '<%%= yeoman.app %>/styles/{,*/}*.css'
-                    ]
+                    '<%= yeoman.dist %>/styles/main.css': '.tmp/styles/{,*/}*.css'
                 }
             }
         },
@@ -301,13 +293,12 @@ module.exports = function (grunt) {
         'jasmine'<% } %>
     ]);
 
-    var target = grunt.option('with-sass') ? 'with-sass' : 'dist';
     grunt.registerTask('build', [
         'clean:dist',
         'chromeManifest:dist',
         'useminPrepare',
         'concurrent:dist',
-        'cssmin:' + target,
+        'cssmin:dist',
         'concat',
         'uglify',
         'copy',
