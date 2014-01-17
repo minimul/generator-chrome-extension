@@ -2,9 +2,13 @@
 
 Maintainer: [Jimmy Moon](https://github.com/ragingwind)
 
+## Background
+This fork of Chrome Extension Generator is strictly for developing extensions using SASS via `grunt watch`. 
+Coffeescript is optional but is supported. At the time this fork of the [official Yeoman generator](git@github.com:yeoman/generator-chrome-extension.git) was modified there was not support for `grunt watch`.
+
 ## Getting Started
 - First make a new directory, and `cd` into it: mkdir my-new-chrome-extension && cd $_
-- Install the generator: `npm install -g generator-chrome-extension`
+- Install the generator: `npm install -g git+ssh://git@github.com:minimul/generator-chrome-extension.git`
 - Run: `yo chrome-extension`, optionally passing an extension name: yo chrome-extension [extension-name]
 
 ## Options
@@ -22,10 +26,12 @@ Maintainer: [Jimmy Moon](https://github.com/ragingwind)
 ## Generator
 Chrome Extension generator that creates everything you need to get started with extension development. You can choose Browser UI(Browser,Page Action, Omnibox) type and select into permissions what you need.
 
-If you need more information? Please visit [Google Chrome Extension Develpment](http://developer.chrome.com/extensions/devguide.html)
+If you need more information? Please visit [Google Chrome Extension Development](http://developer.chrome.com/extensions/devguide.html)
 
 ## Development
-Go to: chrome://extensions, enable Developer mode and load app as an unpacked extension choosing the /app directory. If you desire to use SASS and/or Coffeescript when developing a `grunt watch` task is provided.
+1. Go to: chrome://extensions, enable Developer mode and load app as an unpacked extension choosing the /app directory. 
+2. Run `grunt watch`, which will compile down all SASS files in the `app/styles` directory to a single `app/styles/main.css` file. 
+3. Coffeescript will be complied in place, e.g. `app/scripts/popup.coffee` will become `app/scripts/popup.js`. Additional Javascript files need to be included in the `app/popup.html` build directive.
 
 ## Build & Package
 By default, generators compress the file that was created by building a js/css/html/resource file. You can distribute the compressed file using the Chrome Developer Dashboard to publish to the Chrome Web Store.
@@ -33,11 +39,6 @@ By default, generators compress the file that was created by building a js/css/h
 Run this command to build your Chrome Extension project.
 
 `grunt build` 
-
-or 
-
-`grunt build --with-sass` if `grunt watch` was used to pre-process your CSS.
-
 
 ## Contribute
 
